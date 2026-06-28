@@ -237,7 +237,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: left center;
     display: block;
     filter: brightness(0.9) saturate(0.85);
   }
@@ -1133,35 +1133,73 @@
   }
 
   /* ── RESPONSIVE ──────────────────────────────────────── */
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    section { padding: 72px 24px; }
-    #hero { grid-template-columns: 1fr; min-height: auto; padding: 0 !important; }
-    .hero-left { padding: 100px 28px 64px; }
-    .hero-photo { min-height: 56vw; height: 56vw; }
-    .hero-photo::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 30%); }
-    .photo-strip { grid-template-columns: 1fr 1fr; height: 260px; }
-    .photo-strip-item:last-child { display: none; }
-    .philosophy-inner { grid-template-columns: 1fr; }
-    .philosophy-photo { display: none; }
-    .story-inner { grid-template-columns: 1fr; }
-    .story-beliefs { border-left: none; border-top: 1px solid rgba(245,241,234,0.12); padding-left: 0; padding-top: 32px; margin-top: 8px; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .define-inner { grid-template-columns: 1fr; gap: 48px; }
-    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-    .cinematic-strip { height: 130px; }
-    .philosophy-steps,
-    .forwhom-grid,
-    .dna-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Tablet (≤ 1024px) */
+  @media (max-width: 1024px) {
     .solve-grid { grid-template-columns: 1fr 1fr; }
-    .journey-steps { grid-template-columns: 1fr 1fr; }
     .eco-grid { grid-template-columns: 1fr 1fr; }
-    footer { flex-direction: column; gap: 12px; text-align: center; padding: 36px 24px; }
-    .nav-cta { display: none; }
+    .journey-steps { grid-template-columns: 1fr 1fr; }
+    .comparison-table { font-size: 14px; }
   }
 
+  /* Mobile landscape / tablet portrait (≤ 900px) */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; height: 56px; }
+    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .lang-toggle { gap: 4px; }
+
+    section { padding: 64px 20px; }
+
+    /* Hero stacks vertically */
+    #hero { grid-template-columns: 1fr; min-height: auto; padding: 0 !important; }
+    .hero-left { padding: 88px 20px 56px; align-items: flex-start; }
+    .hero-right,
+    .hero-photo { min-height: 60vw; height: 60vw; }
+    .hero-photo::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 40%); }
+
+    /* Strip — anchor to left so no text shows */
+    .cinematic-strip { height: 140px; }
+
+    /* Story */
+    .story-inner { grid-template-columns: 1fr; gap: 40px; }
+    .story-beliefs { border-left: none; border-top: 1px solid rgba(245,241,234,0.12); padding-left: 0; padding-top: 32px; margin-top: 0; }
+
+    /* Philosophy */
+    .philosophy-inner { grid-template-columns: 1fr; }
+    .philosophy-photo { display: none; }
+    .philosophy-steps { grid-template-columns: 1fr 1fr; }
+
+    /* Define */
+    .define-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    /* Solve */
+    .solve-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Journey */
+    .journey-steps { grid-template-columns: 1fr 1fr; }
+
+    /* Ecosystem */
+    .eco-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Services / DNA / For whom */
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .forwhom-grid { grid-template-columns: 1fr 1fr; }
+    .dna-grid { grid-template-columns: 1fr 1fr; }
+
+    /* Contact */
+    .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+
+    footer { flex-direction: column; gap: 10px; text-align: center; padding: 32px 20px; }
+  }
+
+  /* Mobile portrait (≤ 540px) */
   @media (max-width: 540px) {
+    section { padding: 56px 16px; }
+
+    .hero-left { padding: 80px 16px 48px; }
+    .hero-tagline { font-size: 11px; }
+
     .philosophy-steps,
     .forwhom-grid,
     .services-grid,
@@ -1169,8 +1207,29 @@
     .journey-steps,
     .eco-grid,
     .dna-grid { grid-template-columns: 1fr; }
-    .comparison-table { font-size: 13px; }
-    .comparison-table td, .comparison-table th { padding: 14px 12px; }
+
+    /* Tables scroll horizontally on small screens */
+    .comparison-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .comparison-table { font-size: 12px; min-width: 480px; }
+    .comparison-table td, .comparison-table th { padding: 12px 10px; }
+
+    /* Manifesto tighter */
+    .manifesto-band { padding: 48px 20px; }
+    .manifesto-text { font-size: clamp(20px, 5vw, 28px); }
+
+    /* Vision text */
+    #vision { min-height: 60vh; }
+
+    /* Ecosystem vision quote */
+    .eco-vision-text { font-size: 16px; }
+
+    /* Solve */
+    .solve-headline { font-size: 24px; }
+
+    /* Journey */
+    .journey-headline { font-size: 24px; }
+
+    footer { font-size: 12px; padding: 28px 16px; }
   }
 </style>
 </head>
@@ -1360,6 +1419,7 @@
     <p class="section-label th">กายวิภาคของประสบการณ์</p>
     <h2 style="font-size: clamp(28px, 3.5vw, 48px); max-width: 560px;" class="en">Why PHRAAN is different.</h2>
     <h2 style="font-size: clamp(28px, 3.5vw, 48px); max-width: 560px;" class="th">ทำไม PHRAAN ถึงแตกต่าง</h2>
+    <div class="comparison-table-wrap">
     <table class="comparison-table">
       <thead>
         <tr>
@@ -1402,6 +1462,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
