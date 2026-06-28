@@ -737,6 +737,128 @@
     letter-spacing: 0.08em;
   }
 
+  /* ── OUR STORY ───────────────────────────────────────── */
+  #story {
+    background: var(--dark);
+    color: var(--cream);
+  }
+
+  .story-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .story-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .story-body {
+    font-size: 15px;
+    color: rgba(245,241,234,0.6);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 20px;
+    max-width: 560px;
+  }
+
+  .story-beliefs {
+    border-left: 1px solid rgba(245,241,234,0.12);
+    padding-left: 40px;
+    padding-top: 8px;
+  }
+
+  .belief-item {
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(245,241,234,0.08);
+  }
+  .belief-item:first-child { padding-top: 0; }
+
+  .belief-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .belief-desc {
+    font-size: 13px;
+    color: rgba(245,241,234,0.45);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  #story .section-label { color: rgba(245,241,234,0.3); }
+
+  /* ── SERVICES ─────────────────────────────────────────── */
+  #services {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+  }
+
+  .services-inner { max-width: 1100px; margin: 0 auto; }
+
+  .services-headline {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 64px;
+    line-height: 1.1;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .service-card {
+    padding: 36px 28px 40px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--white);
+    transition: background 0.2s;
+  }
+
+  .service-card:hover { background: var(--cream); }
+
+  .service-num {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .service-name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
   /* ── RESPONSIVE ──────────────────────────────────────── */
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
@@ -749,6 +871,9 @@
     .photo-strip-item:last-child { display: none; }
     .philosophy-inner { grid-template-columns: 1fr; }
     .philosophy-photo { display: none; }
+    .story-inner { grid-template-columns: 1fr; }
+    .story-beliefs { border-left: none; border-top: 1px solid rgba(245,241,234,0.12); padding-left: 0; padding-top: 32px; margin-top: 8px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
     .define-inner { grid-template-columns: 1fr; gap: 48px; }
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
     .cinematic-strip { height: 130px; }
@@ -762,6 +887,7 @@
   @media (max-width: 540px) {
     .philosophy-steps,
     .forwhom-grid,
+    .services-grid,
     .dna-grid { grid-template-columns: 1fr; }
     .comparison-table { font-size: 13px; }
     .comparison-table td, .comparison-table th { padding: 14px 12px; }
@@ -808,6 +934,42 @@
 </div>
 
 
+<!-- OUR STORY -->
+<section id="story">
+  <div class="story-inner">
+    <div class="story-text">
+      <p class="section-label en">Our Story</p>
+      <p class="section-label th">เรื่องราวของเรา</p>
+      <h2 class="story-headline en">Every scent begins<br>with a story.</h2>
+      <h2 class="story-headline th">ทุกกลิ่นเริ่มต้น<br>จากเรื่องราว</h2>
+      <p class="story-body en">PHRAAN was born from a simple question: why do people remember scents better than almost anything else? When we think of home, we think of a scent. When we think of a person, we think of a scent. When we travel, the first thing that connects us to a place is often a scent.</p>
+      <p class="story-body th">PHRAAN เกิดจากคำถามง่าย ๆ ว่า "ทำไมผู้คนถึงจดจำกลิ่นได้ดีกว่าหลายสิ่ง" เมื่อเรานึกถึงบ้าน เรามักนึกถึงกลิ่น เมื่อเรานึกถึงคนคนหนึ่ง เรามักนึกถึงกลิ่น เมื่อเราเดินทาง สิ่งแรกที่เชื่อมโยงเรากับสถานที่นั้น มักเป็นกลิ่น</p>
+      <p class="story-body en">Scent is not just a fragrance. It is memory. We started from a passion for essential oils, craft and nature — not to teach people how to blend scents, but to create a space where scent becomes a tool for creativity, conversation and shared experience. From Phrae, a small province full of craft, culture and simplicity, PHRAAN brings that inspiration to wherever you are — a hotel, a company, a wedding, a brand event.</p>
+      <p class="story-body th">กลิ่นจึงไม่ใช่แค่ความหอม แต่คือความทรงจำ เราเริ่มต้นจากความหลงใหลใน Essential Oils งานคราฟท์ และธรรมชาติ จากจังหวัดแพร่ เมืองเล็กที่เต็มไปด้วยงานคราฟท์ วัฒนธรรม และความเรียบง่าย PHRAAN นำแรงบันดาลใจเหล่านั้นมาสู่ทุกที่ที่คุณอยู่ ไม่ว่าจะเป็นโรงแรม บริษัท งานแต่งงาน หรือกิจกรรมของแบรนด์</p>
+    </div>
+    <div class="story-beliefs">
+      <div class="belief-item">
+        <p class="belief-title en">Experience before Product</p>
+        <p class="belief-title th">ประสบการณ์มาก่อนสินค้า</p>
+        <p class="belief-desc en">We design experiences before we design products.</p>
+        <p class="belief-desc th">เราออกแบบประสบการณ์ก่อนออกแบบสินค้า</p>
+      </div>
+      <div class="belief-item">
+        <p class="belief-title en">Participation creates Meaning</p>
+        <p class="belief-title th">การมีส่วนร่วมสร้างความหมาย</p>
+        <p class="belief-desc en">What people create themselves holds more value than what they buy.</p>
+        <p class="belief-desc th">สิ่งที่ผู้คนลงมือสร้างเอง จะมีคุณค่ามากกว่าสิ่งที่ซื้อสำเร็จ</p>
+      </div>
+      <div class="belief-item">
+        <p class="belief-title en">Connection is the True Outcome</p>
+        <p class="belief-title th">ความสัมพันธ์คือผลลัพธ์ที่แท้จริง</p>
+        <p class="belief-desc en">The real result is not a product — it is relationships, memories and stories between people.</p>
+        <p class="belief-desc th">ผลลัพธ์ที่แท้จริงของ PHRAAN ไม่ใช่ผลิตภัณฑ์ แต่คือความสัมพันธ์ ความทรงจำ และเรื่องราวที่เกิดขึ้นระหว่างผู้คน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PHILOSOPHY -->
 <section id="philosophy">
   <div class="philosophy-inner">
@@ -816,8 +978,8 @@
     <p class="section-label th">ปรัชญาของเรา</p>
     <h2 class="philosophy-headline en">We don't teach people<br>how to blend scents.</h2>
     <h2 class="philosophy-headline th">เราไม่ได้สอนให้คนผสมน้ำหอม</h2>
-    <p class="philosophy-sub en">We create spaces to feel, create, connect and remember. Making scent an accessible, meaningful creative journey — not a technical exercise reserved for experts.</p>
-    <p class="philosophy-sub th">เราสร้างพื้นที่เพื่อให้ผู้คนได้รู้สึก สร้างสรรค์ เชื่อมโยง และจดจำ ทำให้กลิ่นกลายเป็นการเดินทางสร้างสรรค์ที่เข้าถึงได้และมีความหมาย</p>
+    <p class="philosophy-sub en">We design meaningful experiences where scent becomes a medium for creativity, connection, and lasting memories — not a technical exercise reserved for experts.</p>
+    <p class="philosophy-sub th">เราออกแบบประสบการณ์ที่ใช้กลิ่นเป็นสื่อกลาง เพื่อสร้างความคิดสร้างสรรค์ ความสัมพันธ์ และความทรงจำที่ผู้คนอยากพกกลับบ้าน</p>
     <div class="philosophy-steps">
       <div class="philosophy-step">
         <p class="step-number">01</p>
@@ -980,6 +1142,46 @@
         <p class="forwhom-title th">การ Activate<br>แบรนด์</p>
         <p class="forwhom-value en">Translating brand identity into a tangible, emotional scent experience your customers remember.</p>
         <p class="forwhom-value th">แปลงเอกลักษณ์แบรนด์ให้เป็นประสบการณ์กลิ่นที่จับต้องได้และลูกค้าจดจำ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-inner">
+    <p class="section-label en">PHRAAN Experience System™</p>
+    <p class="section-label th">ระบบประสบการณ์ PHRAAN™</p>
+    <h2 class="services-headline en">Four ways to<br>work with us.</h2>
+    <h2 class="services-headline th">สี่รูปแบบ<br>การทำงานร่วมกัน</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <p class="service-num">01</p>
+        <p class="service-name en">Create Experience</p>
+        <p class="service-name th">ประสบการณ์การสร้างสรรค์</p>
+        <p class="service-desc en">Workshops including Aroma Roller, Diffuser and Room Spray sessions. Hands-on creative experiences for individuals and groups where scent becomes an artistic medium.</p>
+        <p class="service-desc th">เวิร์กช็อปที่รวมถึง Aroma Roller, Diffuser และ Room Spray ประสบการณ์สร้างสรรค์เชิงปฏิบัติสำหรับบุคคลและกลุ่ม ที่ใช้กลิ่นเป็นสื่อทางศิลปะ</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">02</p>
+        <p class="service-name en">Connect Experience</p>
+        <p class="service-name th">ประสบการณ์การเชื่อมโยง</p>
+        <p class="service-desc en">Team Building, Corporate, Wedding and Community experiences. Designed to spark genuine human connection and lasting memories through shared creation.</p>
+        <p class="service-desc th">ประสบการณ์ Team Building องค์กร งานแต่งงาน และชุมชน ออกแบบเพื่อจุดประกายความสัมพันธ์และความทรงจำที่ยั่งยืนผ่านการสร้างร่วมกัน</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">03</p>
+        <p class="service-name en">Curate Experience</p>
+        <p class="service-name th">ประสบการณ์ที่คัดสรร</p>
+        <p class="service-desc en">Brand Activation, Hotel Programmes and Pop-up Experiences. Crafted to extend your brand into a sensory, memorable moment your audience will carry with them.</p>
+        <p class="service-desc th">Brand Activation โปรแกรมโรงแรม และ Pop-up Experience สร้างสรรค์เพื่อขยายแบรนด์ของคุณสู่ประสบการณ์ทางประสาทสัมผัสที่ผู้คนจะพกพาติดตัวไป</p>
+      </div>
+      <div class="service-card">
+        <p class="service-num">04</p>
+        <p class="service-name en">Signature Experience</p>
+        <p class="service-name th">ประสบการณ์เฉพาะตัว</p>
+        <p class="service-desc en">Fully bespoke scent experiences designed exclusively for your brand or organisation. Your values, your story, your scent — crafted from the ground up.</p>
+        <p class="service-desc th">ประสบการณ์กลิ่นที่ออกแบบเฉพาะสำหรับแบรนด์หรือองค์กรของคุณ คุณค่าของคุณ เรื่องราวของคุณ กลิ่นของคุณ — สร้างจากศูนย์</p>
       </div>
     </div>
   </div>
