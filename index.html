@@ -1132,6 +1132,77 @@
     line-height: 1.75;
   }
 
+  /* ── HAMBURGER + MOBILE MENU ─────────────────────────── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block;
+    height: 1.5px;
+    background: var(--dark);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0; right: 0;
+    background: rgba(250,250,248,0.97);
+    backdrop-filter: blur(16px);
+    z-index: 99;
+    flex-direction: column;
+    padding: 24px 20px 32px;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mobile-link {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--mid);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .mobile-link:last-of-type { border-bottom: none; }
+  .mobile-link:hover { color: var(--dark); }
+  .mobile-cta {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    background: var(--dark);
+    padding: 14px 24px;
+    text-decoration: none;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+  .mobile-cta:hover { opacity: 0.8; }
+
   /* ── RESPONSIVE ──────────────────────────────────────── */
 
   /* Tablet (≤ 1024px) */
@@ -1147,6 +1218,7 @@
     nav { padding: 0 20px; height: 56px; }
     .nav-links { display: none; }
     .nav-cta { display: none; }
+    .hamburger { display: flex; }
     .lang-toggle { gap: 4px; }
 
     section { padding: 64px 20px; }
@@ -1259,8 +1331,29 @@
     </div>
     <a href="#contact" class="nav-cta en">Book an experience</a>
     <a href="#contact" class="nav-cta th">จองประสบการณ์</a>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#story" class="mobile-link en" onclick="closeMenu()">Studio</a>
+  <a href="#story" class="mobile-link th" onclick="closeMenu()">สตูดิโอ</a>
+  <a href="#philosophy" class="mobile-link en" onclick="closeMenu()">Philosophy</a>
+  <a href="#philosophy" class="mobile-link th" onclick="closeMenu()">ปรัชญา</a>
+  <a href="#services" class="mobile-link en" onclick="closeMenu()">Services</a>
+  <a href="#services" class="mobile-link th" onclick="closeMenu()">บริการ</a>
+  <a href="#journey" class="mobile-link en" onclick="closeMenu()">Journey</a>
+  <a href="#journey" class="mobile-link th" onclick="closeMenu()">การเดินทาง</a>
+  <a href="#ecosystem" class="mobile-link en" onclick="closeMenu()">Ecosystem</a>
+  <a href="#ecosystem" class="mobile-link th" onclick="closeMenu()">ระบบนิเวศ</a>
+  <a href="#contact" class="mobile-link en" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="mobile-link th" onclick="closeMenu()">ติดต่อ</a>
+  <a href="#contact" class="mobile-cta en" onclick="closeMenu()">Book an experience</a>
+  <a href="#contact" class="mobile-cta th" onclick="closeMenu()">จองประสบการณ์</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1934,6 +2027,28 @@
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-th').classList.toggle('active', lang === 'th');
   }
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    const isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  }
+
+  function closeMenu() {
+    document.getElementById('mobile-menu').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    const menu = document.getElementById('mobile-menu');
+    const btn = document.getElementById('hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !btn.contains(e.target)) {
+      closeMenu();
+    }
+  });
 
   function sendMessage(e) {
     e.preventDefault();
