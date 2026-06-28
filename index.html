@@ -60,6 +60,21 @@
     text-decoration: none;
   }
 
+  .nav-links {
+    display: flex; align-items: center; gap: 28px;
+    position: absolute; left: 50%; transform: translateX(-50%);
+  }
+
+  .nav-link {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--dark); }
+
   .nav-right { display: flex; align-items: center; gap: 32px; }
 
   .lang-toggle {
@@ -546,6 +561,158 @@
     font-weight: 300;
   }
 
+  /* ── WHAT WE SOLVE ───────────────────────────────────── */
+  #solve {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+  }
+
+  .solve-inner { max-width: 1100px; margin: 0 auto; }
+
+  .solve-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 64px;
+    line-height: 1.15;
+  }
+
+  .solve-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .solve-card {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column;
+  }
+
+  .solve-context {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .solve-problem {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.65;
+    text-decoration: line-through;
+    text-decoration-color: rgba(28,28,26,0.25);
+    flex: 1;
+  }
+
+  .solve-arrow {
+    font-size: 18px;
+    color: var(--gold);
+    margin: 20px 0;
+  }
+
+  .solve-solution {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.4;
+  }
+
+  /* ── THE JOURNEY ─────────────────────────────────────── */
+  #journey {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+  }
+
+  .journey-inner { max-width: 1100px; margin: 0 auto; }
+
+  .journey-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+
+  .journey-sub {
+    font-size: 15px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 620px;
+    margin-bottom: 64px;
+  }
+
+  .journey-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+  }
+
+  .journey-step {
+    padding: 32px 24px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--white);
+    transition: background 0.2s;
+  }
+
+  .journey-step:hover { background: var(--cream); }
+
+  .journey-num {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-weight: 500;
+    flex-shrink: 0;
+    padding-top: 3px;
+  }
+
+  .journey-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .journey-desc {
+    font-size: 13px;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── MANIFESTO ───────────────────────────────────────── */
+  .manifesto-band {
+    background: var(--gold);
+    padding: 64px 48px;
+    text-align: center;
+  }
+
+  .manifesto-text {
+    font-family: var(--serif);
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+
   /* ── VISION ──────────────────────────────────────────── */
   #vision {
     border-top: 1px solid var(--border);
@@ -862,6 +1029,7 @@
   /* ── RESPONSIVE ──────────────────────────────────────── */
   @media (max-width: 900px) {
     nav { padding: 0 24px; }
+    .nav-links { display: none; }
     section { padding: 72px 24px; }
     #hero { grid-template-columns: 1fr; min-height: auto; padding: 0 !important; }
     .hero-left { padding: 100px 28px 64px; }
@@ -880,6 +1048,8 @@
     .philosophy-steps,
     .forwhom-grid,
     .dna-grid { grid-template-columns: repeat(2, 1fr); }
+    .solve-grid { grid-template-columns: 1fr 1fr; }
+    .journey-steps { grid-template-columns: 1fr 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; padding: 36px 24px; }
     .nav-cta { display: none; }
   }
@@ -888,6 +1058,8 @@
     .philosophy-steps,
     .forwhom-grid,
     .services-grid,
+    .solve-grid,
+    .journey-steps,
     .dna-grid { grid-template-columns: 1fr; }
     .comparison-table { font-size: 13px; }
     .comparison-table td, .comparison-table th { padding: 14px 12px; }
@@ -899,6 +1071,18 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">PHRAAN</a>
+  <div class="nav-links">
+    <a href="#story" class="nav-link en">Studio</a>
+    <a href="#story" class="nav-link th">สตูดิโอ</a>
+    <a href="#philosophy" class="nav-link en">Philosophy</a>
+    <a href="#philosophy" class="nav-link th">ปรัชญา</a>
+    <a href="#services" class="nav-link en">Services</a>
+    <a href="#services" class="nav-link th">บริการ</a>
+    <a href="#journey" class="nav-link en">Experience</a>
+    <a href="#journey" class="nav-link th">ประสบการณ์</a>
+    <a href="#contact" class="nav-link en">Contact</a>
+    <a href="#contact" class="nav-link th">ติดต่อ</a>
+  </div>
   <div class="nav-right">
     <div class="lang-toggle">
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
@@ -944,8 +1128,8 @@
       <h2 class="story-headline th">ทุกกลิ่นเริ่มต้น<br>จากเรื่องราว</h2>
       <p class="story-body en">PHRAAN was born from a simple question: why do people remember scents better than almost anything else? When we think of home, we think of a scent. When we think of a person, we think of a scent. When we travel, the first thing that connects us to a place is often a scent.</p>
       <p class="story-body th">PHRAAN เกิดจากคำถามง่าย ๆ ว่า "ทำไมผู้คนถึงจดจำกลิ่นได้ดีกว่าหลายสิ่ง" เมื่อเรานึกถึงบ้าน เรามักนึกถึงกลิ่น เมื่อเรานึกถึงคนคนหนึ่ง เรามักนึกถึงกลิ่น เมื่อเราเดินทาง สิ่งแรกที่เชื่อมโยงเรากับสถานที่นั้น มักเป็นกลิ่น</p>
-      <p class="story-body en">Scent is not just a fragrance. It is memory. We started from a passion for essential oils, craft and nature — not to teach people how to blend scents, but to create a space where scent becomes a tool for creativity, conversation and shared experience. From Phrae, a small province full of craft, culture and simplicity, PHRAAN brings that inspiration to wherever you are — a hotel, a company, a wedding, a brand event.</p>
-      <p class="story-body th">กลิ่นจึงไม่ใช่แค่ความหอม แต่คือความทรงจำ เราเริ่มต้นจากความหลงใหลใน Essential Oils งานคราฟท์ และธรรมชาติ จากจังหวัดแพร่ เมืองเล็กที่เต็มไปด้วยงานคราฟท์ วัฒนธรรม และความเรียบง่าย PHRAAN นำแรงบันดาลใจเหล่านั้นมาสู่ทุกที่ที่คุณอยู่ ไม่ว่าจะเป็นโรงแรม บริษัท งานแต่งงาน หรือกิจกรรมของแบรนด์</p>
+      <p class="story-body en">Scent is not just a fragrance. It is memory. PHRAAN started from a passion for essential oils, craft and nature — not to open a class teaching people how to blend scents, but to create a space where scent becomes a tool for creativity, conversation and shared experience. From Phrae, a small province full of craft, culture and simplicity, PHRAAN reinterprets that inspiration to be contemporary, accessible, and able to travel anywhere — a hotel, a company, a wedding, a brand event. PHRAAN doesn't bring people to blend scents. PHRAAN brings people to tell stories through scent.</p>
+      <p class="story-body th">กลิ่นจึงไม่ใช่แค่ความหอม แต่คือความทรงจำ PHRAAN เริ่มต้นจากความหลงใหลใน Essential Oils งานคราฟท์ และธรรมชาติ เราไม่ได้ต้องการเปิดคลาสสอนผสมน้ำหอม แต่ต้องการสร้างพื้นที่ที่ผู้คนสามารถใช้กลิ่นเป็นเครื่องมือในการสร้างสรรค์ พูดคุย แลกเปลี่ยน และสร้างประสบการณ์ร่วมกัน จากจังหวัดแพร่ เมืองเล็กที่เต็มไปด้วยงานคราฟท์ วัฒนธรรม และความเรียบง่าย PHRAAN นำแรงบันดาลใจเหล่านั้นมาตีความใหม่ ให้ร่วมสมัย เข้าถึงง่าย และสามารถเดินทางไปได้ทุกที่ PHRAAN ไม่ได้พาผู้คนมาผสมน้ำหอม แต่พาผู้คนมาสร้างเรื่องราวผ่านกลิ่น</p>
     </div>
     <div class="story-beliefs">
       <div class="belief-item">
@@ -959,6 +1143,18 @@
         <p class="belief-title th">การมีส่วนร่วมสร้างความหมาย</p>
         <p class="belief-desc en">What people create themselves holds more value than what they buy.</p>
         <p class="belief-desc th">สิ่งที่ผู้คนลงมือสร้างเอง จะมีคุณค่ามากกว่าสิ่งที่ซื้อสำเร็จ</p>
+      </div>
+      <div class="belief-item">
+        <p class="belief-title en">Nature inspires Creativity</p>
+        <p class="belief-title th">ธรรมชาติจุดประกายความคิดสร้างสรรค์</p>
+        <p class="belief-desc en">Nature is not just a source of raw materials — it is the inspiration behind every creation.</p>
+        <p class="belief-desc th">ธรรมชาติไม่ใช่แค่แหล่งวัตถุดิบ แต่เป็นแรงบันดาลใจในการสร้างสรรค์</p>
+      </div>
+      <div class="belief-item">
+        <p class="belief-title en">Craft is a Way of Thinking</p>
+        <p class="belief-title th">งานคราฟท์คือวิธีคิด</p>
+        <p class="belief-desc en">Craft is not merely working by hand — it is intentionality, precision and care in every single step.</p>
+        <p class="belief-desc th">งานคราฟท์ไม่ใช่เพียงการทำด้วยมือ แต่คือความตั้งใจ ความละเอียด และความใส่ใจในทุกขั้นตอน</p>
       </div>
       <div class="belief-item">
         <p class="belief-title en">Connection is the True Outcome</p>
@@ -1236,6 +1432,146 @@
     </div>
   </div>
 </section>
+
+<!-- WHAT WE SOLVE -->
+<section id="solve">
+  <div class="solve-inner">
+    <p class="section-label en">What we solve</p>
+    <p class="section-label th">ปัญหาที่เราแก้ไข</p>
+    <h2 class="solve-headline en">We don't sell workshops.<br>We solve real problems.</h2>
+    <h2 class="solve-headline th">เราไม่ได้ขาย Workshop<br>เราแก้ Pain Point จริง ๆ</h2>
+    <div class="solve-grid">
+      <div class="solve-card">
+        <p class="solve-context en">Corporate</p>
+        <p class="solve-context th">องค์กร</p>
+        <p class="solve-problem en">Same old team building activities that people forget the next day.</p>
+        <p class="solve-problem th">กิจกรรม Team Building เดิม ๆ ที่ผู้คนลืมในวันถัดไป</p>
+        <div class="solve-arrow">↓</div>
+        <p class="solve-solution en">We design an Experience that people carry with them.</p>
+        <p class="solve-solution th">เราออกแบบ Experience ที่ผู้คนพกพาไปด้วย</p>
+      </div>
+      <div class="solve-card">
+        <p class="solve-context en">Brand</p>
+        <p class="solve-context th">แบรนด์</p>
+        <p class="solve-problem en">Brands want customer engagement but don't know how to create it.</p>
+        <p class="solve-problem th">ลูกค้าอยากมี Engagement แต่ไม่รู้จะสร้างอย่างไร</p>
+        <div class="solve-arrow">↓</div>
+        <p class="solve-solution en">We design a Brand Activation through scent.</p>
+        <p class="solve-solution th">เราออกแบบ Brand Activation ผ่านกลิ่น</p>
+      </div>
+      <div class="solve-card">
+        <p class="solve-context en">Hotel</p>
+        <p class="solve-context th">โรงแรม</p>
+        <p class="solve-problem en">Guests want a local, authentic experience — not just a room.</p>
+        <p class="solve-problem th">แขกอยากได้ Local Experience ที่แท้จริง ไม่ใช่แค่ห้องพัก</p>
+        <div class="solve-arrow">↓</div>
+        <p class="solve-solution en">We design a Scent Experience rooted in local craft.</p>
+        <p class="solve-solution th">เราออกแบบ Scent Experience จากงานคราฟท์ท้องถิ่น</p>
+      </div>
+      <div class="solve-card">
+        <p class="solve-context en">Wedding</p>
+        <p class="solve-context th">งานแต่งงาน</p>
+        <p class="solve-problem en">Couples want their guests to remember the day forever.</p>
+        <p class="solve-problem th">อยากให้แขกจำงานได้ตลอดไป</p>
+        <div class="solve-arrow">↓</div>
+        <p class="solve-solution en">We design a Signature Memory that lasts every time that scent returns.</p>
+        <p class="solve-solution th">เราออกแบบ Signature Memory ที่คืนชีพทุกครั้งที่ได้กลิ่นนั้น</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE JOURNEY -->
+<section id="journey">
+  <div class="journey-inner">
+    <p class="section-label en">The Experience</p>
+    <p class="section-label th">ประสบการณ์</p>
+    <h2 class="journey-headline en">From first impression<br>to lasting memory.</h2>
+    <h2 class="journey-headline th">จากความประทับใจแรก<br>สู่ความทรงจำที่ยั่งยืน</h2>
+    <p class="journey-sub en">Our customer journey is not simply a workshop process. It is an intentional experience that encourages people to discover, create, connect, and remember.</p>
+    <p class="journey-sub th">การเดินทางของลูกค้าเราไม่ใช่แค่กระบวนการเวิร์กช็อป แต่คือประสบการณ์ที่ตั้งใจออกแบบเพื่อให้ผู้คนค้นพบ สร้าง เชื่อมโยง และจดจำ</p>
+    <div class="journey-steps">
+      <div class="journey-step">
+        <span class="journey-num">01</span>
+        <div>
+          <p class="journey-title en">Discover</p>
+          <p class="journey-title th">ค้นพบ</p>
+          <p class="journey-desc en">The journey begins before the event — creating curiosity and anticipation.</p>
+          <p class="journey-desc th">การเดินทางเริ่มก่อนวันงาน สร้างความอยากรู้และความคาดหวัง</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">02</span>
+        <div>
+          <p class="journey-title en">Welcome</p>
+          <p class="journey-title th">ต้อนรับ</p>
+          <p class="journey-desc en">A thoughtfully prepared environment invites participants to slow down and become present.</p>
+          <p class="journey-desc th">สภาพแวดล้อมที่ออกแบบอย่างพิถีพิถัน เชิญชวนให้ผู้เข้าร่วมชะลอตัวและอยู่กับปัจจุบัน</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">03</span>
+        <div>
+          <p class="journey-title en">Sense</p>
+          <p class="journey-title th">สัมผัส</p>
+          <p class="journey-desc en">Explore essential oils through guided exercises — learning to recognize scent, emotion and memory.</p>
+          <p class="journey-desc th">สำรวจ Essential Oils ผ่านการฝึกดมกลิ่น เรียนรู้ที่จะรับรู้กลิ่น อารมณ์ และความทรงจำ</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">04</span>
+        <div>
+          <p class="journey-title en">Discover Yourself</p>
+          <p class="journey-title th">ค้นพบตัวเอง</p>
+          <p class="journey-desc en">Through storytelling and mood prompts, identify which scents resonate with your personality.</p>
+          <p class="journey-desc th">ผ่านการเล่าเรื่องและสิ่งกระตุ้นอารมณ์ ค้นหาว่ากลิ่นใดสะท้อนตัวตนของคุณ</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">05</span>
+        <div>
+          <p class="journey-title en">Craft</p>
+          <p class="journey-title th">สร้างสรรค์</p>
+          <p class="journey-desc en">Blend your own scent using natural essential oils. No formula — only expression.</p>
+          <p class="journey-desc th">ผสมกลิ่นของตัวเองด้วย Essential Oils จากธรรมชาติ ไม่มีสูตร — มีเพียงการแสดงออก</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">06</span>
+        <div>
+          <p class="journey-title en">Personalize</p>
+          <p class="journey-title th">ทำให้เป็นของตัวเอง</p>
+          <p class="journey-desc en">Name your creation, customize labels, record the story behind your blend.</p>
+          <p class="journey-desc th">ตั้งชื่อผลงาน ปรับแต่งฉลาก บันทึกเรื่องราวเบื้องหลังกลิ่นของคุณ</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">07</span>
+        <div>
+          <p class="journey-title en">Connect</p>
+          <p class="journey-title th">เชื่อมโยง</p>
+          <p class="journey-desc en">Share stories, exchange inspirations — turning individual experiences into shared memories.</p>
+          <p class="journey-desc th">แบ่งปันเรื่องราว แลกเปลี่ยนแรงบันดาลใจ เปลี่ยนประสบการณ์ส่วนตัวเป็นความทรงจำร่วมกัน</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <span class="journey-num">08</span>
+        <div>
+          <p class="journey-title en">Take Home</p>
+          <p class="journey-title th">พกกลับบ้าน</p>
+          <p class="journey-desc en">Leave with a handcrafted scent, a personal story, and a memory that returns every time you encounter that fragrance again.</p>
+          <p class="journey-desc th">กลับบ้านพร้อมกลิ่นที่สร้างด้วยมือ เรื่องราวส่วนตัว และความทรงจำที่หวนคืนทุกครั้งที่ได้กลิ่นนั้นอีกครั้ง</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto-band">
+  <p class="manifesto-text en">We believe experiences are remembered<br>long after products are forgotten.</p>
+  <p class="manifesto-text th">เราเชื่อว่าประสบการณ์จะถูกจดจำ<br>นานกว่าผลิตภัณฑ์เสมอ</p>
+</div>
 
 <!-- VISION -->
 <section id="vision">
