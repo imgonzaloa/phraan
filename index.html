@@ -561,6 +561,66 @@
     font-weight: 300;
   }
 
+  /* ── IN ACTION ───────────────────────────────────────── */
+  #inaction {
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+  }
+
+  .inaction-inner { max-width: 1100px; margin: 0 auto; }
+
+  .inaction-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 56px;
+    line-height: 1.1;
+  }
+
+  .inaction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .inaction-photo {
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--dark);
+  }
+
+  .inaction-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-col {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .video-wrap {
+    flex: 1;
+    position: relative;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    background: var(--dark);
+    border-radius: 4px;
+  }
+
+  .video-wrap video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   /* ── WHAT WE SOLVE ───────────────────────────────────── */
   #solve {
     background: var(--white);
@@ -1254,6 +1314,12 @@
     /* Ecosystem */
     .eco-grid { grid-template-columns: 1fr 1fr; }
 
+    /* In action */
+    .inaction-grid { grid-template-columns: 1fr; }
+    .inaction-photo { aspect-ratio: 1 / 1; max-height: 400px; }
+    .video-col { flex-direction: row; gap: 12px; }
+    .video-wrap { aspect-ratio: 9 / 16; }
+
     /* Services / DNA / For whom */
     .services-grid { grid-template-columns: 1fr 1fr; }
     .forwhom-grid { grid-template-columns: 1fr 1fr; }
@@ -1692,6 +1758,29 @@
         <p class="dna-en-label th">ผลลัพธ์แห่งมนุษย์</p>
         <p class="dna-desc en">The real result of every PHRAAN experience is not a product. It is the relationships, memories and stories that emerge between people.</p>
         <p class="dna-desc th">ผลลัพธ์ที่แท้จริงของ PHRAAN ไม่ใช่สินค้า แต่คือความสัมพันธ์ ความทรงจำ และเรื่องราวที่เกิดขึ้นระหว่างผู้คน</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN ACTION -->
+<section id="inaction">
+  <div class="inaction-inner">
+    <p class="section-label en">See it in action</p>
+    <p class="section-label th">ชมประสบการณ์จริง</p>
+    <h2 class="inaction-headline en">Real people.<br>Real experiences.</h2>
+    <h2 class="inaction-headline th">ผู้คนจริง<br>ประสบการณ์จริง</h2>
+    <div class="inaction-grid">
+      <div class="inaction-photo">
+        <img src="photo_workshop.jpg" alt="PHRAAN experience in action">
+      </div>
+      <div class="video-col">
+        <div class="video-wrap">
+          <video src="video1.mp4" autoplay muted loop playsinline></video>
+        </div>
+        <div class="video-wrap">
+          <video src="video2.mp4" autoplay muted loop playsinline></video>
+        </div>
       </div>
     </div>
   </div>
